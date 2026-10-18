@@ -9,7 +9,7 @@ const DATA = {
   waktuTeks: '18.00 WIB - selesai',
   tempat: 'GPdI Agape Purwokerto, Klenteng, Kedungrandu, Patikraja, Banyumas Regency, Central Java 53171',
   linkMaps: 'https://maps.app.goo.gl/GDah51ZpWUZ8Xo3r5',
-  penyelenggara: 'Panitia Natal Keluarga Besar',
+  penyelenggara: 'Keluarga Besar GPdI Agape Purwokerto',
   instagram: 'gpdiagapepurwokerto' // isi username saja, tanpa @ (kosongkan '' kalau tidak mau ditampilkan)
 };
 
@@ -30,7 +30,7 @@ $('penyelenggara').textContent = DATA.penyelenggara;
 const ig = DATA.instagram.replace('@', '').trim();
 if (ig) {
   $('btnInstagram').href = `https://instagram.com/${ig}`;
-  $('btnInstagram').textContent = `📷 @${ig}`;
+  $('btnInstagram').textContent = `@${ig}`;
 } else {
   $('btnInstagram').style.display = 'none';
 }
