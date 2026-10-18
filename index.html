@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Natal</title>
+  <meta name="description" content="Kamu diundang ke perayaan Natal. Buka undangan untuk melihat detail acara.">
+  <meta name="theme-color" content="#05020d">
+
+  <!-- Tampilan pratinjau saat link dibagikan (WhatsApp, dll) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Undangan Perayaan Natal">
+  <meta property="og:description" content="Kamu diundang ke perayaan Natal. Buka untuk melihat detail acara.">
+
+  <!-- Ikon tab (emoji pohon Natal) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%84%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Salju -->
+  <canvas id="snow"></canvas>
+
+  <!-- Halaman pembuka -->
+  <section id="cover" class="cover">
+    <div class="cover-box">
+      <p class="small">Undangan Perayaan</p>
+      <h1 class="script">Natal <span id="tahun">2026</span></h1>
+      <p class="small">Kepada Yth.</p>
+      <h2 id="namaTamu">Tamu Undangan</h2>
+      <button id="btnBuka" class="btn">🎁 Buka Undangan</button>
+    </div>
+  </section>
+
+  <!-- Isi undangan -->
+  <main id="isi" class="isi hidden">
+
+    <header class="hero">
+      <div class="star">⭐</div>
+      <p class="small">Dengan penuh sukacita, kami mengundang Anda</p>
+      <h1 class="script big">Perayaan Natal</h1>
+      <p id="tema" class="tema">"Damai Natal di Hati Kita"</p>
+    </header>
+
+    <section class="card">
+      <h3>Hitung Mundur</h3>
+      <div class="countdown">
+        <div><span id="hari">0</span><small>Hari</small></div>
+        <div><span id="jam">0</span><small>Jam</small></div>
+        <div><span id="menit">0</span><small>Menit</small></div>
+        <div><span id="detik">0</span><small>Detik</small></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Detail Acara</h3>
+      <ul class="detail">
+        <li>📅 <span id="tanggal">-</span></li>
+        <li>🕕 <span id="waktu">-</span></li>
+        <li>📍 <span id="tempat">-</span></li>
+        <li>👗 <span id="dresscode">-</span></li>
+      </ul>
+      <a id="btnMaps" class="btn btn-outline" href="#" target="_blank" rel="noopener">Lihat Lokasi</a>
+    </section>
+
+    <section class="card">
+      <h3>Susunan Acara</h3>
+      <ol id="rundown" class="rundown"></ol>
+    </section>
+
+    <section class="card">
+      <h3>Konfirmasi Kehadiran</h3>
+      <form id="formRsvp">
+        <input type="text" id="inputNama" placeholder="Nama Anda" required>
+        <select id="inputHadir">
+          <option value="Hadir">Ya, saya akan hadir</option>
+          <option value="Tidak hadir">Maaf, tidak bisa hadir</option>
+        </select>
+        <input type="number" id="inputJumlah" min="1" max="10" value="1" placeholder="Jumlah orang">
+        <textarea id="inputPesan" rows="3" placeholder="Ucapan / pesan (opsional)"></textarea>
+        <button type="submit" class="btn">Kirim via WhatsApp</button>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <p class="script">Selamat Natal &amp; Tahun Baru 🎄</p>
+      <small id="penyelenggara">-</small>
+      <br>
+      <button id="btnBagikan" class="btn btn-outline" type="button">📤 Bagikan Undangan</button>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
