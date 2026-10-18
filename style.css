@@ -5,17 +5,25 @@
   --ungu-terang: #6b3fb5;
   --emas: #f5c542;
   --krem: #fff8ec;
+
+  --font-judul: 'Playfair Display', Georgia, serif;
+  --font-isi: 'Nunito', 'Segoe UI', Arial, sans-serif;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html { font-size: 17px; } /* sedikit lebih besar supaya nyaman dibaca orang tua */
+
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-isi);
+  line-height: 1.6;
   color: var(--krem);
   background: linear-gradient(180deg, var(--hitam) 0%, var(--ungu-tua) 55%, var(--ungu) 100%);
   background-attachment: fixed;
   min-height: 100vh;
+  min-height: 100dvh;
   overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Kanvas bintang & salju */
@@ -26,8 +34,8 @@ body {
   z-index: 11;
 }
 
-.script { font-family: 'Great Vibes', cursive; font-weight: 400; }
-.small { font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; opacity: .85; }
+.judul { font-family: var(--font-judul); font-weight: 700; }
+.small { font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; opacity: .9; }
 .hidden { display: none; }
 
 /* Tombol */
@@ -35,12 +43,13 @@ body {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 28px;
+  min-height: 46px;
   border: none;
   border-radius: 50px;
   background: var(--emas);
   color: var(--hitam);
-  font-family: inherit;
-  font-weight: 600;
+  font-family: var(--font-isi);
+  font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
   text-decoration: none;
@@ -61,6 +70,7 @@ body {
   justify-content: center;
   text-align: center;
   padding: 20px;
+  min-height: 100dvh;
   background:
     radial-gradient(circle at 80% 15%, rgba(245,197,66,.18), transparent 25%),
     radial-gradient(circle at 20% 80%, rgba(107,63,181,.35), transparent 45%),
@@ -78,15 +88,28 @@ body {
   backdrop-filter: blur(4px);
   box-shadow: 0 0 40px rgba(245,197,66,.15);
 }
-.cover-box h1 { font-size: 3.5rem; color: var(--emas); margin: 10px 0 25px; text-shadow: 0 0 18px rgba(245,197,66,.45); }
-.cover-box h2 { margin-top: 6px; font-weight: 600; font-size: 1.5rem; }
+.cover-box h1 { font-size: 3rem; color: var(--emas); margin: 10px 0 25px; text-shadow: 0 0 18px rgba(245,197,66,.45); }
+.cover-box h2 { margin-top: 6px; font-weight: 700; font-size: 1.5rem; }
 
 /* Isi */
-.isi { position: relative; z-index: 6; max-width: 560px; margin: 0 auto; padding: 30px 18px 60px; }
+.isi { position: relative; z-index: 6; max-width: 560px; margin: 0 auto; padding: 30px 18px calc(60px + env(safe-area-inset-bottom)); }
 .hero { text-align: center; padding: 50px 10px 30px; }
 .star { font-size: 3rem; animation: kilau 2s infinite alternate; }
-.hero .big { font-size: 3.8rem; color: var(--emas); margin: 10px 0; line-height: 1.1; text-shadow: 0 0 20px rgba(245,197,66,.4); }
-.tema { font-style: italic; opacity: .9; }
+.hero .big { font-size: 2.8rem; color: var(--emas); margin: 10px 0; line-height: 1.2; text-shadow: 0 0 20px rgba(245,197,66,.4); }
+.tema {
+  font-family: var(--font-judul);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.9rem;
+  line-height: 1.35;
+  color: var(--krem);
+  max-width: 440px;
+  margin: 18px auto 0;
+  padding: 18px 10px;
+  border-top: 1px solid rgba(245,197,66,.55);
+  border-bottom: 1px solid rgba(245,197,66,.55);
+  text-shadow: 0 0 18px rgba(245,197,66,.35);
+}
 
 .card {
   background: rgba(255,255,255,.06);
@@ -102,54 +125,27 @@ body {
   transition: opacity .7s ease, transform .7s ease;
 }
 .card.muncul { opacity: 1; transform: none; }
-.card h3 { font-family: 'Great Vibes', cursive; font-size: 2.1rem; font-weight: 400; color: var(--emas); margin-bottom: 14px; }
+.card h3 { font-size: 1.5rem; color: var(--emas); margin-bottom: 16px; }
 
 /* Countdown */
 .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
 .countdown div { background: rgba(5,2,13,.55); border: 1px solid rgba(107,63,181,.5); border-radius: 12px; padding: 12px 4px; }
-.countdown span { display: block; font-size: 1.8rem; font-weight: 600; color: var(--emas); }
-.countdown small { font-size: .7rem; text-transform: uppercase; letter-spacing: 1px; }
+.countdown span { display: block; font-size: 1.9rem; font-weight: 700; color: var(--emas); font-variant-numeric: tabular-nums; }
+.countdown small { font-size: .75rem; text-transform: uppercase; letter-spacing: 1px; }
 
 /* Detail */
-.detail { list-style: none; line-height: 2.1; }
-
-/* Rundown */
-.rundown { list-style: none; text-align: left; }
-.rundown li { padding: 10px 0; border-bottom: 1px dashed rgba(255,255,255,.2); display: flex; gap: 14px; }
-.rundown li:last-child { border: none; }
-.rundown b { color: var(--emas); min-width: 60px; }
-
-/* Form */
-form { display: flex; flex-direction: column; gap: 12px; }
-input, select, textarea {
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(245,197,66,.5);
-  background: rgba(5,2,13,.55);
-  color: var(--krem);
-  font-family: inherit;
-  font-size: .95rem;
-}
-input::placeholder, textarea::placeholder { color: rgba(255,248,236,.55); }
-select option { color: #000; }
-input:focus, select:focus, textarea:focus { outline: 2px solid var(--emas); }
+.detail { list-style: none; font-size: 1.1rem; line-height: 2; }
 
 .footer { text-align: center; margin-top: 40px; }
-.footer .script { font-size: 2.2rem; color: var(--emas); }
+.footer .salam { font-size: 1.5rem; color: var(--emas); margin-bottom: 6px; }
 
 @keyframes kilau {
   from { transform: scale(1); filter: drop-shadow(0 0 4px var(--emas)); }
   to   { transform: scale(1.15); filter: drop-shadow(0 0 16px var(--emas)); }
 }
 
-/* Penyesuaian layar HP */
-body { min-height: 100dvh; -webkit-tap-highlight-color: transparent; }
-.cover { min-height: 100dvh; }
-input, select, textarea { font-size: 16px; } /* mencegah iPhone otomatis zoom saat mengetik */
-.isi { padding-bottom: calc(60px + env(safe-area-inset-bottom)); }
-.btn { min-height: 46px; }
-
 @media (max-width: 400px) {
-  .cover-box h1 { font-size: 3rem; }
-  .hero .big { font-size: 3.1rem; }
+  .cover-box h1 { font-size: 2.6rem; }
+  .hero .big { font-size: 2.3rem; }
+  .tema { font-size: 1.6rem; }
 }
